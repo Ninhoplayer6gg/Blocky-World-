@@ -166,6 +166,10 @@ func _on_spawn_area_ready() -> void:
 		if buried and not _is_new_player:
 			Log.warn("PLAYER", "Saved position %s is inside blocks; moving to the surface" % player.global_position)
 		_move_to_surface(player.global_position)
+	if world.save.get_generator() == GameConfig.LAB_GENERATOR:
+		# Blocky Lab always has an entity to test against (entities are not
+		# persisted until 0.2).
+		world.entities.spawn("blockyworld:test_dummy", world.generator.get_spawn_position() + Vector3(3, 0, 3))
 	_loading.visible = false
 	is_playing = true
 	player.input_enabled = true

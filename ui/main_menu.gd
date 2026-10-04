@@ -157,7 +157,10 @@ func _mod_row(mod: ModEntry, disabled: PackedStringArray) -> Control:
 	if mod.manifest != null and not mod.manifest.author.is_empty():
 		details.append("by " + mod.manifest.author)
 	if not mod.content_counts.is_empty():
-		details.append(str(mod.content_counts))
+		var counts := PackedStringArray()
+		for type in mod.content_counts:
+			counts.append("%d %s" % [mod.content_counts[type], type])
+		details.append("Adds " + ", ".join(counts))
 	for message in mod.errors:
 		details.append("Error: " + message)
 	var text := Label.new()

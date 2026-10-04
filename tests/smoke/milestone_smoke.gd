@@ -132,6 +132,19 @@ func _phase_create(game: Node) -> void:
 	check(world.place_block(ruby_pos, ruby, player), "example:ruby_block can be placed")
 	session.console.run("/setblock %d %d %d example:ruby_block" % [ruby_pos.x, ruby_pos.y + 1, ruby_pos.z])
 	check(world.get_block(ruby_pos + Vector3i(0, 1, 0)) == ruby, "/setblock with the mod block works")
+	for command in ["/help", "/chunks", "/fps", "/pos", "/seed", "/assets", "/mods"]:
+		var output: String = session.console.run(command)
+		check(not output.is_empty() and not output.begins_with("Unknown"), "%s answers" % command)
+	var spawned: String = session.console.run("/spawn blockyworld:test_dummy")
+	check(spawned.begins_with("Spawned"), "/spawn test dummy (%s)" % spawned)
+
+	# Hot reload keeps runtime ids and placed blocks valid
+	var reload_result: String = session.console.run("/reload")
+	check(reload_result.begins_with("Reloaded"), "/reload works (%s)" % reload_result)
+	check(world.content.registries.blocks.get_runtime_id("example:ruby_block") == ruby, "runtime ids stable after reload")
+	check(world.get_block(ruby_pos) == ruby, "placed mod block intact after reload")
+	await _wait(func() -> bool: return world.chunks.stats().jobs == 0, "remesh after reload")
+
 	player.head.rotation.x = 0.0
 	player.rotation.y = 0.0
 	await _frames(5)
