@@ -43,7 +43,7 @@ func read_entry(mod_dir: String, source: ModEntry.Source) -> ModEntry:
 	var json := JSON.new()
 	if json.parse(text) != OK:
 		entry.manifest = ModManifest.new()
-		entry.fail("%s line %d: %s" % [MANIFEST_FILE, json.get_error_line(), json.get_error_message()])
+		entry.fail("%s line %d: %s" % [MANIFEST_FILE, json.get_error_line() + 1, json.get_error_message()])
 		return entry
 	entry.manifest = ModManifest.from_dict(json.data)
 	for message in entry.manifest.errors:

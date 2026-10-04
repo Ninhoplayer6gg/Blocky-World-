@@ -95,7 +95,7 @@ func _load_type(mod: ModEntry, type: String) -> void:
 		var text := FileAccess.get_file_as_string(dir.path_join(file))
 		var json := JSON.new()
 		if json.parse(text) != OK:
-			_mod_error(mod, "%s line %d: %s" % [label, json.get_error_line(), json.get_error_message()])
+			_mod_error(mod, "%s line %d: %s" % [label, json.get_error_line() + 1, json.get_error_message()])
 			continue
 		var definitions: Array = json.data if json.data is Array else [json.data]
 		for data in definitions:

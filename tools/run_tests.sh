@@ -28,6 +28,9 @@ run "Unit tests" -s res://tests/run_tests.gd -- --bw-no-boot "${1:-}"
 if [ "${SMOKE:-0}" = "1" ]; then
 	run "Smoke: create" -s res://tests/smoke/milestone_smoke.gd -- --phase=create
 	run "Smoke: verify" -s res://tests/smoke/milestone_smoke.gd -- --phase=verify
+	run "Missing mod: place" -s res://tests/smoke/missing_mod_smoke.gd -- --phase=place
+	run "Missing mod: open without mod" -s res://tests/smoke/missing_mod_smoke.gd -- --phase=missing
+	run "Missing mod: restore" -s res://tests/smoke/missing_mod_smoke.gd -- --phase=restore
 fi
 rm -f "$LOG"
 [ $status -eq 0 ] && echo "ALL GREEN" || echo "FAILURES"

@@ -56,7 +56,7 @@ static func open(world_directory: String) -> Dictionary:
 		return {"save": null, "error": "%s not found" % path}
 	var json := JSON.new()
 	if json.parse(SafeFile.read_text(path)) != OK:
-		return {"save": null, "error": "%s line %d: %s" % [path, json.get_error_line(), json.get_error_message()]}
+		return {"save": null, "error": "%s line %d: %s" % [path, json.get_error_line() + 1, json.get_error_message()]}
 	if not json.data is Dictionary or json.data.get("format") != FORMAT:
 		return {"save": null, "error": "%s is not a Blocky World save" % path}
 	var migrated := SaveMigrations.migrate_world(json.data)
@@ -156,7 +156,7 @@ func load_player_data() -> Dictionary:
 		return {}
 	var json := JSON.new()
 	if json.parse(SafeFile.read_text(path)) != OK or not json.data is Dictionary:
-		Log.error("SAVE", "%s is corrupt (line %d: %s); player starts at spawn" % [path, json.get_error_line(), json.get_error_message()])
+		Log.error("SAVE", "%s is corrupt (line %d: %s); player starts at spawn" % [path, json.get_error_line() + 1, json.get_error_message()])
 		return {}
 	return json.data
 

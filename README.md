@@ -104,6 +104,12 @@ SMOKE=1 GODOT=/caminho/para/godot tools/run_tests.sh  # + smoke test do mileston
   cria um mundo, anda, pula, quebra e coloca blocos, usa o bloco do
   `example_mod`, atravessa chunks, roda `/reload`, salva, e num **segundo
   processo** reabre o mundo e confere que tudo persistiu.
+- **Mod ausente** (`tests/smoke/missing_mod_smoke.gd`, 3 processos): salva um
+  mundo com o bloco do `example_mod`, reabre com o mod desativado (aviso +
+  placeholder que mantém o id, edições continuam sendo salvas) e reativa o mod
+  (o bloco volta).
+- Os smoke tests criam mundos chamados `... (automated)` e os apagam quando
+  passam.
 - `tools/benchmark_chunks.gd` mede custo de geração/meshing por chunk.
 - `tools/capture_lab.gd` tira um screenshot do Blocky Lab (precisa de display
   ou `xvfb-run`).
@@ -119,7 +125,7 @@ SMOKE=1 GODOT=/caminho/para/godot tools/run_tests.sh  # + smoke test do mileston
 
 ## Estado do Milestone 0.1
 
-Verificado automaticamente (smoke test, Godot 4.3 e 4.7): criar mundo, nascer
+Verificado automaticamente (smoke tests, Godot 4.3 e 4.7): criar mundo, nascer
 no mundo voxel, andar, pular, quebrar, colocar, trocar slot da hotbar,
 atravessar chunks com geração de novos chunks, salvar, reabrir em outro
 processo com as alterações preservadas, carregar `example_mod` e usar o bloco
