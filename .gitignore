@@ -1,0 +1,13 @@
+# Godot 4 generated data
+.godot/
+.import/
+*.tmp
+
+# Export output
+build/
+export/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
