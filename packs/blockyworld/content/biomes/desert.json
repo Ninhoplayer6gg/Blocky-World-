@@ -1,0 +1,21 @@
+{
+  "id": "blockyworld:desert",
+  "display_name": "Desert",
+  "temperature": 0.85,
+  "humidity": 0.15,
+  "surface_block": "sand",
+  "subsurface_block": "sand",
+  "subsurface_depth": 4,
+  "stone_block": "sandstone",
+  "height_offset": -1,
+  "height_variation": 0.45,
+  "features": [
+    {
+      "type": "blockyworld:column",
+      "chance": 0.005,
+      "block": "cactus",
+      "min_height": 1,
+      "max_height": 3
+    }
+  ]
+}

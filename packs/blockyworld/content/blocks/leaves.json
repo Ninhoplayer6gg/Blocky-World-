@@ -1,0 +1,11 @@
+{
+  "id": "blockyworld:leaves",
+  "display_name": "Leaves",
+  "texture": "blockyworld:blocks/leaves",
+  "placeholder_color": "#3d8a30d9",
+  "hardness": 0.2,
+  "render": "cutout",
+  "tags": [
+    "blockyworld:foliage"
+  ]
+}

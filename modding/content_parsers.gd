@@ -147,7 +147,7 @@ static func parse_biome(data: Dictionary, fields: JsonFields, ns: String) -> Bio
 		var copy: Dictionary = feature.duplicate(true)
 		copy["type"] = fields.qualify_id(feature["type"], GameInfo.CORE_NAMESPACE, "features.type")
 		for key in copy:
-			if key.ends_with("_block") and typeof(copy[key]) == TYPE_STRING:
+			if (key == "block" or key.ends_with("_block")) and typeof(copy[key]) == TYPE_STRING:
 				copy[key] = fields.qualify_id(copy[key], ns, "features." + key)
 		biome.features.append(copy)
 	return biome if fields.errors.is_empty() else null
@@ -211,4 +211,4 @@ static func _qualified_list(values: PackedStringArray, ns: String, fields: JsonF
 
 
 static func _default_name(id: String) -> String:
-	return NamespacedId.get_path(id).get_file().replace("_", " ").capitalize()
+	return NamespacedId.path_of(id).get_file().replace("_", " ").capitalize()

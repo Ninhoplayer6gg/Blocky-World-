@@ -1,0 +1,10 @@
+{
+  "id": "blockyworld:lab_tile",
+  "display_name": "Lab Tile",
+  "texture": "blockyworld:blocks/lab_tile",
+  "placeholder_color": "#d9d9d2",
+  "hardness": 0.5,
+  "tags": [
+    "blockyworld:dev"
+  ]
+}

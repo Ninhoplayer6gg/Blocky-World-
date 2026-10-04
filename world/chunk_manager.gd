@@ -88,6 +88,11 @@ func set_render_distance(distance: int) -> void:
 	_needs_recenter = true
 
 
+## New chunks use `generator`; already loaded chunks are kept as they are.
+func set_generator(generator: WorldGenerator) -> void:
+	_generator = generator
+
+
 func get_chunk_data(chunk_position: Vector2i) -> ChunkData:
 	var entry: ChunkEntry = _chunks.get(chunk_position)
 	return entry.data if entry != null else null

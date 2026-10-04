@@ -1,0 +1,9 @@
+{
+  "id": "blockyworld:baserock",
+  "display_name": "Baserock",
+  "texture": "blockyworld:blocks/baserock",
+  "placeholder_color": "#333336",
+  "hardness": -1,
+  "item": false,
+  "comment": "Unbreakable bottom layer of the world."
+}

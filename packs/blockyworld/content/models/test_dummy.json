@@ -1,0 +1,22 @@
+{
+  "id": "blockyworld:test_dummy",
+  "scene": "blockyworld:entities/test_dummy",
+  "scale": 1.0,
+  "placeholder": {
+    "type": "humanoid",
+    "colors": {
+      "skin": "#c9c9c9",
+      "body": "#d08a2e",
+      "legs": "#5a5a5a"
+    }
+  },
+  "attachment_bones": {
+    "head": "Head",
+    "right_hand": "Hand.R",
+    "left_hand": "Hand.L"
+  },
+  "animations": {
+    "idle": "Idle",
+    "walk": "Walk"
+  }
+}

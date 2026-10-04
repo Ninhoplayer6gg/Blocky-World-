@@ -1,0 +1,9 @@
+{
+  "id": "blockyworld",
+  "name": "Blocky World",
+  "version": "0.1.0",
+  "author": "Blocky World",
+  "description": "Base game content. Loaded through the same registries and content-pack format as any mod.",
+  "api_version": 1,
+  "dependencies": []
+}

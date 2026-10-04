@@ -1,0 +1,17 @@
+{
+  "id": "blockyworld:cactus",
+  "display_name": "Cactus",
+  "textures": {
+    "top": "blockyworld:blocks/cactus_top",
+    "bottom": "blockyworld:blocks/cactus_top",
+    "side": "blockyworld:blocks/cactus_side"
+  },
+  "placeholder_color": {
+    "top": "#6b9c48",
+    "side": "#4c8636"
+  },
+  "hardness": 0.4,
+  "tags": [
+    "blockyworld:foliage"
+  ]
+}

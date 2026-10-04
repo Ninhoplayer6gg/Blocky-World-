@@ -20,7 +20,7 @@ var collision_shape: CollisionShape3D
 
 func setup(entity_definition: EntityDefinition, attribute_registry: AttributeRegistry) -> void:
 	definition = entity_definition
-	name = "%s_%s" % [NamespacedId.get_path(definition.id), uuid.substr(0, 8)]
+	name = "%s_%s" % [NamespacedId.path_of(definition.id), uuid.substr(0, 8)]
 	attributes = AttributeSet.new(attribute_registry)
 	for attribute_id in definition.attributes:
 		attributes.set_base(attribute_id, definition.attributes[attribute_id])

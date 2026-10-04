@@ -56,8 +56,8 @@ func get_namespace_roots(ns: String) -> PackedStringArray:
 func resolve(type: String, asset_id: String) -> String:
 	if not NamespacedId.is_valid(asset_id):
 		return ""
-	var ns := NamespacedId.get_namespace(asset_id)
-	var rel := NamespacedId.get_path(asset_id)
+	var ns := NamespacedId.namespace_of(asset_id)
+	var rel := NamespacedId.path_of(asset_id)
 	for candidate_root in _candidate_roots(ns):
 		for ext in EXTENSIONS.get(type, []):
 			var path := "%s/%s/%s.%s" % [candidate_root, type, rel, ext]
@@ -68,11 +68,11 @@ func resolve(type: String, asset_id: String) -> String:
 
 ## Where a modder/artist should place a file for this asset id.
 func expected_path(type: String, asset_id: String) -> String:
-	var ns := NamespacedId.get_namespace(asset_id)
+	var ns := NamespacedId.namespace_of(asset_id)
 	var roots := get_namespace_roots(ns)
 	var root := roots[0] if not roots.is_empty() else "<pack of '%s'>" % ns
 	var ext: String = EXTENSIONS.get(type, [""])[0]
-	return "%s/%s/%s.%s" % [root, type, NamespacedId.get_path(asset_id), ext]
+	return "%s/%s/%s.%s" % [root, type, NamespacedId.path_of(asset_id), ext]
 
 
 ## Loads an Image (RGBA8, no mipmaps) or returns null when the asset is missing.

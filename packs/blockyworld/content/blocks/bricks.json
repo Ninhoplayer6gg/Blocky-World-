@@ -1,0 +1,7 @@
+{
+  "id": "blockyworld:bricks",
+  "display_name": "Bricks",
+  "texture": "blockyworld:blocks/bricks",
+  "placeholder_color": "#9a4b3b",
+  "hardness": 2.0
+}

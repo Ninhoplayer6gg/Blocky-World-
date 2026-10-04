@@ -1,0 +1,10 @@
+{
+  "id": "blockyworld:dirt",
+  "display_name": "Dirt",
+  "texture": "blockyworld:blocks/dirt",
+  "placeholder_color": "#7a5535",
+  "hardness": 0.5,
+  "tags": [
+    "blockyworld:soil"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "blockyworld:planks",
+  "display_name": "Planks",
+  "texture": "blockyworld:blocks/planks",
+  "placeholder_color": "#b38f58",
+  "hardness": 2.0,
+  "tags": [
+    "blockyworld:wood"
+  ]
+}

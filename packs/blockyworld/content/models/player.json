@@ -1,0 +1,31 @@
+{
+  "id": "blockyworld:player",
+  "scene": "blockyworld:entities/player",
+  "scale": 1.0,
+  "placeholder": {
+    "type": "humanoid",
+    "colors": {
+      "skin": "#d9ad8c",
+      "body": "#3a7fb8",
+      "legs": "#3b3f63"
+    }
+  },
+  "attachment_bones": {
+    "head": "Head",
+    "face": "Head",
+    "chest": "Chest",
+    "back": "Chest",
+    "left_hand": "Hand.L",
+    "right_hand": "Hand.R",
+    "waist": "Hips",
+    "feet": "Root"
+  },
+  "animations": {
+    "idle": "Idle",
+    "walk": "Walk",
+    "run": "Run",
+    "jump": "Jump",
+    "fall": "Fall"
+  },
+  "comment": "Drop the character at packs/blockyworld/models/entities/player.glb; bone and clip names above are what the rig should use."
+}

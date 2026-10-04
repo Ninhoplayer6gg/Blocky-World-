@@ -31,12 +31,12 @@ static func make(ns: String, path: String) -> String:
 	return ns + SEPARATOR + path
 
 
-static func get_namespace(id: String) -> String:
+static func namespace_of(id: String) -> String:
 	var index := id.find(SEPARATOR)
 	return id.substr(0, index) if index >= 0 else ""
 
 
-static func get_path(id: String) -> String:
+static func path_of(id: String) -> String:
 	var index := id.find(SEPARATOR)
 	return id.substr(index + 1) if index >= 0 else id
 

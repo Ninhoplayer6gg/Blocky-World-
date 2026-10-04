@@ -1,0 +1,18 @@
+{
+  "id": "example:ruby_block",
+  "display_name": "Ruby Block",
+  "texture": "example:blocks/ruby_block",
+  "placeholder_color": "#b01a35",
+  "hardness": 4,
+  "solid": true,
+  "light": 3,
+  "tags": [
+    "example:gem_blocks"
+  ],
+  "drops": [
+    {
+      "item": "example:ruby",
+      "count": 4
+    }
+  ]
+}

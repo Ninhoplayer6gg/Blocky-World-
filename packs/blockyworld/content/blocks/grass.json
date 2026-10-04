@@ -1,0 +1,24 @@
+{
+  "id": "blockyworld:grass",
+  "display_name": "Grass",
+  "textures": {
+    "top": "blockyworld:blocks/grass_top",
+    "side": "blockyworld:blocks/grass_side",
+    "bottom": "blockyworld:blocks/dirt"
+  },
+  "placeholder_color": {
+    "top": "#5ea83c",
+    "side": "#6f7a3a",
+    "bottom": "#7a5535"
+  },
+  "hardness": 0.6,
+  "tags": [
+    "blockyworld:soil"
+  ],
+  "drops": [
+    {
+      "item": "blockyworld:dirt",
+      "count": 1
+    }
+  ]
+}

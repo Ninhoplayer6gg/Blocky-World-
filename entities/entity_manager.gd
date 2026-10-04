@@ -38,7 +38,7 @@ func spawn(entity_id: String, position: Vector3, entity_script: Script = null) -
 			Log.error("ENTITY", "Component %s of %s is not an EntityComponent" % [params.type, entity_id])
 			continue
 		component.type_id = params.type
-		component.name = NamespacedId.get_path(params.type).capitalize().replace(" ", "")
+		component.name = NamespacedId.path_of(params.type).capitalize().replace(" ", "")
 		if not component.configure(params):
 			Log.error("ENTITY", "Component %s of %s rejected its parameters" % [params.type, entity_id])
 			component.free()

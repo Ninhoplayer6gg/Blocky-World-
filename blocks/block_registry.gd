@@ -64,7 +64,7 @@ func create_missing_placeholder(original_id: String) -> BlockDefinition:
 	definition.missing = true
 	definition.hardness = 1.0
 	definition.has_item = false
-	definition.source_mod = NamespacedId.get_namespace(original_id)
+	definition.source_mod = NamespacedId.namespace_of(original_id)
 	definition.textures = {}
 	_entries[original_id] = definition
 	_ordered.append(definition)

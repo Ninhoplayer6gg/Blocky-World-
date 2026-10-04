@@ -136,7 +136,7 @@ func _register(mod: ModEntry, type: String, data: Dictionary, label: String, ns:
 			_mod_error(mod, message)
 		return
 	var id: String = definition.get("id")
-	if NamespacedId.get_namespace(id) != ns:
+	if NamespacedId.namespace_of(id) != ns:
 		_mod_error(mod, "%s: id '%s' must use the mod namespace '%s:'" % [label, id, ns])
 		return
 	definition.set("source_mod", mod.get_id())
@@ -168,7 +168,7 @@ func _mod_error(mod: ModEntry, message: String) -> void:
 
 
 func _warn(mod_by_ns: Dictionary, id: String, message: String) -> void:
-	var mod: ModEntry = mod_by_ns.get(NamespacedId.get_namespace(id))
+	var mod: ModEntry = mod_by_ns.get(NamespacedId.namespace_of(id))
 	if mod != null:
 		mod.warnings.append(message)
 	Log.warn("CONTENT", message)

@@ -1,0 +1,10 @@
+{
+  "id": "blockyworld:lab_tile_dark",
+  "display_name": "Lab Tile (Dark)",
+  "texture": "blockyworld:blocks/lab_tile_dark",
+  "placeholder_color": "#8c8c86",
+  "hardness": 0.5,
+  "tags": [
+    "blockyworld:dev"
+  ]
+}

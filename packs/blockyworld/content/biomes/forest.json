@@ -1,0 +1,21 @@
+{
+  "id": "blockyworld:forest",
+  "display_name": "Forest",
+  "temperature": 0.45,
+  "humidity": 0.75,
+  "surface_block": "grass",
+  "subsurface_block": "dirt",
+  "subsurface_depth": 3,
+  "height_offset": 3,
+  "height_variation": 1.0,
+  "features": [
+    {
+      "type": "blockyworld:tree",
+      "chance": 0.045,
+      "log_block": "log",
+      "leaves_block": "leaves",
+      "min_height": 4,
+      "max_height": 7
+    }
+  ]
+}
