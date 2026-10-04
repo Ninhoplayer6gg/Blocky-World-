@@ -16,7 +16,7 @@ func _process(_delta: float) -> bool:
 	var scripts := _collect("res://")
 	for path in scripts:
 		var script: Resource = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_REUSE)
-		if script == null:
+		if script == null or (script is GDScript and not (script as GDScript).can_instantiate()):
 			printerr("FAILED: ", path)
 			failures += 1
 	print("Checked %d scripts, %d failed" % [scripts.size(), failures])

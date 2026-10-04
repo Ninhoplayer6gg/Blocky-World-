@@ -11,6 +11,8 @@ enum Level { DEBUG, INFO, WARN, ERROR }
 const MAX_HISTORY := 600
 
 static var min_level: Level = Level.INFO
+## When true, lines are recorded but not printed (tests that provoke errors).
+static var muted := false
 static var _mutex: Mutex = Mutex.new()
 static var _history: PackedStringArray = PackedStringArray()
 ## Total lines ever written; lets UI poll for new lines without callbacks
@@ -62,6 +64,17 @@ static func _write(level: Level, category: String, message: String) -> void:
 	if level < min_level:
 		return
 	var line := format_line(level, category, message)
+	if not muted:
+		_print(level, line)
+	_mutex.lock()
+	_history.append(line)
+	_written += 1
+	if _history.size() > MAX_HISTORY:
+		_history = _history.slice(_history.size() - MAX_HISTORY)
+	_mutex.unlock()
+
+
+static func _print(level: Level, line: String) -> void:
 	match level:
 		Level.ERROR:
 			push_error(line)
@@ -69,9 +82,3 @@ static func _write(level: Level, category: String, message: String) -> void:
 			push_warning(line)
 		_:
 			print(line)
-	_mutex.lock()
-	_history.append(line)
-	_written += 1
-	if _history.size() > MAX_HISTORY:
-		_history = _history.slice(_history.size() - MAX_HISTORY)
-	_mutex.unlock()
