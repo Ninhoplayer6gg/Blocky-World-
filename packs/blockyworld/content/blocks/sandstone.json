@@ -1,0 +1,17 @@
+{
+  "id": "blockyworld:sandstone",
+  "display_name": "Sandstone",
+  "textures": {
+    "top": "blockyworld:blocks/sandstone_top",
+    "side": "blockyworld:blocks/sandstone_side",
+    "bottom": "blockyworld:blocks/sandstone_top"
+  },
+  "placeholder_color": {
+    "top": "#d6c886",
+    "side": "#c8b673"
+  },
+  "hardness": 0.8,
+  "tags": [
+    "blockyworld:stone_like"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "id": "blockyworld:sand",
+  "display_name": "Sand",
+  "texture": "blockyworld:blocks/sand",
+  "placeholder_color": "#dccf8f",
+  "hardness": 0.5
+}

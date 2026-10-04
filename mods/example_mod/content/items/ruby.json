@@ -1,0 +1,10 @@
+{
+  "id": "example:ruby",
+  "display_name": "Ruby",
+  "icon": "example:items/ruby",
+  "placeholder_color": "#d0203f",
+  "max_stack": 64,
+  "tags": [
+    "example:gems"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "blockyworld:log",
+  "display_name": "Log",
+  "textures": {
+    "top": "blockyworld:blocks/log_top",
+    "bottom": "blockyworld:blocks/log_top",
+    "side": "blockyworld:blocks/log_side"
+  },
+  "placeholder_color": {
+    "top": "#b08f5e",
+    "side": "#6b4a2b"
+  },
+  "hardness": 2.0,
+  "tags": [
+    "blockyworld:wood"
+  ]
+}

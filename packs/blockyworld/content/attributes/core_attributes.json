@@ -1,0 +1,39 @@
+[
+  {
+    "id": "blockyworld:max_health",
+    "display_name": "Max Health",
+    "default": 20,
+    "min": 0,
+    "max": 1024
+  },
+  {
+    "id": "blockyworld:movement_speed",
+    "display_name": "Movement Speed",
+    "default": 4.3,
+    "min": 0,
+    "max": 100,
+    "comment": "Blocks per second while walking."
+  },
+  {
+    "id": "blockyworld:jump_strength",
+    "display_name": "Jump Strength",
+    "default": 8.4,
+    "min": 0,
+    "max": 50,
+    "comment": "Initial upward velocity of a jump."
+  },
+  {
+    "id": "blockyworld:attack_damage",
+    "display_name": "Attack Damage",
+    "default": 1,
+    "min": 0,
+    "max": 1000
+  },
+  {
+    "id": "blockyworld:armor",
+    "display_name": "Armor",
+    "default": 0,
+    "min": 0,
+    "max": 100
+  }
+]

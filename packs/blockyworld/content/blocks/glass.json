@@ -1,0 +1,8 @@
+{
+  "id": "blockyworld:glass",
+  "display_name": "Glass",
+  "texture": "blockyworld:blocks/glass",
+  "placeholder_color": "#d2eef826",
+  "hardness": 0.3,
+  "render": "cutout"
+}

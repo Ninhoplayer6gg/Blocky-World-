@@ -1,0 +1,15 @@
+{
+  "id": "example_mod",
+  "name": "Example Mod",
+  "version": "0.1.0",
+  "author": "Blocky World",
+  "description": "Example Blocky World mod: adds a Ruby Block and a Ruby item without touching game code.",
+  "namespace": "example",
+  "api_version": 1,
+  "dependencies": [
+    {
+      "id": "blockyworld",
+      "version": ">=0.1.0"
+    }
+  ]
+}

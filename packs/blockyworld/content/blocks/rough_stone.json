@@ -1,0 +1,10 @@
+{
+  "id": "blockyworld:rough_stone",
+  "display_name": "Rough Stone",
+  "texture": "blockyworld:blocks/rough_stone",
+  "placeholder_color": "#6a6b70",
+  "hardness": 2.0,
+  "tags": [
+    "blockyworld:stone_like"
+  ]
+}
