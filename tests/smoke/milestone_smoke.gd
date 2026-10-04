@@ -7,10 +7,11 @@ extends SceneTree
 ## "create" makes a fresh world, walks, jumps, breaks and places blocks
 ## (including example_mod's block), crosses chunk borders, then saves and
 ## quits. "verify" (a new process) reopens the world and checks that every
-## edit and the player state persisted. Add --shots=<dir> under a display to
-## save screenshots. Exit code 0 = pass.
+## edit and the player state persisted, then deletes the test world (pass
+## --keep to inspect it). Add --shots=<dir> under a display to save
+## screenshots. Exit code 0 = pass.
 
-const WORLD_NAME := "Smoke Test"
+const WORLD_NAME := "Smoke Test (automated)"
 const STATE_PATH := "user://smoke_state.json"
 const TIMEOUT_SEC := 90.0
 
@@ -217,6 +218,10 @@ func _phase_verify(game: Node) -> void:
 	check(world.get_block_definition(ruby_pos + Vector3i(0, 1, 0)).id == "example:ruby_block", "/setblock ruby persisted")
 	await _frames(10)
 	await _shot("04_reloaded")
+	if _failures.is_empty() and not OS.get_cmdline_user_args().has("--keep"):
+		game.session.close_session()
+		SaveManager.delete_world(directory)
+		DirAccess.remove_absolute(STATE_PATH)
 
 
 func check(condition: bool, label: String) -> void:

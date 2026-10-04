@@ -16,7 +16,6 @@ var entities: EntityManager
 var creative := false
 ## Chunks stream around this point (normally the player).
 var focus_position := Vector3.ZERO
-var _autosave_timer := 0.0
 var _spawn_ready_emitted := false
 
 
@@ -45,17 +44,13 @@ func setup(game_content: GameContent, world_save: WorldSave, event_bus: EventBus
 	return ""
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if chunks == null:
 		return
 	chunks.update(focus_position)
 	if not _spawn_ready_emitted and chunks.is_area_ready(VoxelCoords.position_to_chunk(focus_position), 1):
 		_spawn_ready_emitted = true
 		spawn_area_ready.emit()
-	_autosave_timer += delta
-	if _autosave_timer >= GameConfig.AUTOSAVE_INTERVAL_SEC:
-		_autosave_timer = 0.0
-		save_world(false)
 
 
 # --- Block access --------------------------------------------------------------

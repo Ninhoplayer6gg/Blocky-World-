@@ -14,10 +14,11 @@ func _process(_delta: float) -> bool:
 	if game.session != null and game.session.is_playing and _frame > 10 and _frame < 1000:
 		_frame = 1000
 		var player: Player = game.session.player
-		player.rotation.y = deg_to_rad(200)
-		player.head.rotation.x = deg_to_rad(-20)
+		# Look along the showcase row (z = -4) from its start.
+		player.teleport(Vector3(-2.5, 33.05, -0.5))
+		player.rotation.y = deg_to_rad(-55)
+		player.head.rotation.x = deg_to_rad(-12)
 		game.session.debug_overlay.visible = true
-		game.session.world.entities.spawn("blockyworld:test_dummy", player.global_position + Vector3(2, 0, 4))
 	if _frame == 1060:
 		var image := root.get_texture().get_image()
 		image.save_png(OS.get_cmdline_user_args()[0])

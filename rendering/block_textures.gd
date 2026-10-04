@@ -64,8 +64,8 @@ func build(blocks: BlockRegistry, resources: ResourceManager) -> void:
 		elif real.has(key):
 			image = (real[key] as Image).duplicate()
 			if image.get_width() != tile_size or image.get_height() != tile_size:
-				if image.get_width() != image.get_height():
-					Log.warn("RENDER", "Texture %s is %dx%d; block textures should be square" % [key, image.get_width(), image.get_height()])
+				Log.warn("RENDER", "Texture %s is %dx%d; resized to %dx%d (all block textures share the largest size, keep them square and equal)" % [
+					key, image.get_width(), image.get_height(), tile_size, tile_size])
 				image.resize(tile_size, tile_size, Image.INTERPOLATE_NEAREST)
 		else:
 			var spec: Array = generated[key]

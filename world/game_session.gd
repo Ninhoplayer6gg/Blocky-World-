@@ -24,6 +24,7 @@ var pause_menu: PauseMenu
 var environment_root: Node3D
 var is_playing := false
 var _loading: Label
+var _autosave_timer := 0.0
 var _is_new_player := false
 var _closing := false
 
@@ -88,11 +89,12 @@ func _notification(what: int) -> void:
 		_set_paused(true)
 
 
-## Saves world chunks, metadata and the player.
-func save_game() -> void:
+## Saves world chunks, metadata and the player. `wait` blocks until chunk
+## files are written (menus, quitting); autosave writes in the background.
+func save_game(wait: bool = true) -> void:
 	if world == null:
 		return
-	world.save_world(true)
+	world.save_world(wait)
 	if player != null:
 		world.save.save_player_data(player.save_state())
 
@@ -151,8 +153,14 @@ func _spawn_player() -> void:
 	console.context.player = player
 
 
-func _process(_delta: float) -> void:
-	if is_playing and player != null and player.global_position.y < VOID_Y:
+func _process(delta: float) -> void:
+	if not is_playing:
+		return
+	_autosave_timer += delta
+	if _autosave_timer >= GameConfig.AUTOSAVE_INTERVAL_SEC:
+		_autosave_timer = 0.0
+		save_game(false)
+	if player != null and player.global_position.y < VOID_Y:
 		Log.warn("PLAYER", "Player fell out of the world at %s; returning to spawn" % player.global_position)
 		_move_to_surface(world.generator.get_spawn_position())
 		hud.show_message("You fell out of the world")

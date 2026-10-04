@@ -78,7 +78,8 @@ func test_lab_world_is_flat_and_shows_blocks() -> void:
 	var floor_y := 32
 	assert_eq(blocks.get_by_runtime(data.get_local(5, floor_y, 5)).id, "blockyworld:lab_tile")
 	assert_eq(blocks.get_by_runtime(data.get_local(0, floor_y, 5)).id, "blockyworld:lab_tile_dark", "chunk border marked")
-	assert_ne(data.get_local(2, floor_y + 1, 6), 0, "showcase row has blocks")
+	var showcase := _generate("blockyworld:lab", GameConfig.DEFAULT_WORLD_SEED, Vector2i(0, -1))
+	assert_ne(showcase.get_local(2, floor_y + 1, 12), 0, "showcase row (z = -4) has blocks")
 
 
 func test_world_hash_is_stable() -> void:

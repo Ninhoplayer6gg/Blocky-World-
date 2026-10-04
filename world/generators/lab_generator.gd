@@ -2,14 +2,16 @@ extends WorldGenerator
 ## Blocky Lab ("blockyworld:lab"): a flat development world.
 ##
 ## - Floor of lab tiles; darker tiles mark chunk borders.
-## - Showcase row (z = 6): every registered block, base game and mods, in
-##   registration order, spaced 2 blocks apart starting at x = 0.
-## - Staircase and gap course (z = -6) for movement/collision checks.
+## - Showcase row (z = -4, in front of the spawn view): every registered
+##   block, base game and mods, in registration order, spaced 2 blocks apart
+##   starting at x = 0.
+## - Staircase and gap course (z = 8, behind the spawn) for movement and
+##   collision checks.
 ## - Glass wall (x = -6) for transparency/culling checks.
 
 const FLOOR_Y := 32
-const SHOWCASE_Z := 6
-const COURSE_Z := -6
+const SHOWCASE_Z := -4
+const COURSE_Z := 8
 const GLASS_X := -6
 const SX := GameConfig.CHUNK_SIZE_X
 const SZ := GameConfig.CHUNK_SIZE_Z

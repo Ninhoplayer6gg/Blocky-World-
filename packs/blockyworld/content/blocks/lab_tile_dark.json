@@ -2,7 +2,7 @@
   "id": "blockyworld:lab_tile_dark",
   "display_name": "Lab Tile (Dark)",
   "texture": "blockyworld:blocks/lab_tile_dark",
-  "placeholder_color": "#8c8c86",
+  "placeholder_color": "#76766f",
   "hardness": 0.5,
   "tags": [
     "blockyworld:dev"

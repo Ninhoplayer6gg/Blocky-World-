@@ -7,6 +7,7 @@ signal opened
 signal closed
 
 const MAX_HISTORY := 50
+const MAX_LINES := 400
 
 var context: CommandContext
 var _output: RichTextLabel
@@ -113,6 +114,8 @@ func _on_input_gui(event: InputEvent) -> void:
 
 func _append(bbcode: String) -> void:
 	_output.append_text(bbcode + "\n")
+	while _output.get_paragraph_count() > MAX_LINES:
+		_output.remove_paragraph(0)
 
 
 static func _escape(text: String) -> String:
